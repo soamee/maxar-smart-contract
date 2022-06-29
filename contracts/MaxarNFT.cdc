@@ -78,7 +78,7 @@ pub contract MaxarNFT: NonFungibleToken {
                 case Type<MetadataViews.Editions>():
                     // There is no max number of NFTs that can be minted from this contract
                     // so the max edition field value is set to nil
-                    let editionInfo = MetadataViews.Edition(name: "Maxar", number: self.id, max: nil)
+                    let editionInfo = MetadataViews.Edition(name: "Maxar NFTs Collection", number: self.id, max: nil)
                     let editionList: [MetadataViews.Edition] = [editionInfo]
                     return MetadataViews.Editions(
                         editionList
@@ -92,7 +92,7 @@ pub contract MaxarNFT: NonFungibleToken {
                         self.royalties
                     )
                 case Type<MetadataViews.ExternalURL>():
-                    return MetadataViews.ExternalURL("https://qldernft.com/lands".concat(self.id.toString()))
+                    return MetadataViews.ExternalURL("https://nft.maxar.com/nfts/".concat(self.id.toString()))
                 case Type<MetadataViews.NFTCollectionData>():
                     return MetadataViews.NFTCollectionData(
                         storagePath: MaxarNFT.CollectionStoragePath,
@@ -108,18 +108,18 @@ pub contract MaxarNFT: NonFungibleToken {
                 case Type<MetadataViews.NFTCollectionDisplay>():
                     let media = MetadataViews.Media(
                         file: MetadataViews.HTTPFile(
-                            url: "https://images.ctfassets.net/q6b7xnxzylaw/7mCJkTtu6ZOjqOrhWM1rz/18a37147ca46602c66fa522a2c796ab9/logo--qrl.png?w=800"
+                            url: "https://nft.maxar.com/maxar.svg"
                         ),
                         mediaType: "image/png"
                     )
                     return MetadataViews.NFTCollectionDisplay(
-                        name: "The Ultimate Queenslander NFT",
-                        description: "In search of the best postcode in the Metaverse, we have dreamt of the quintessential experience.",
-                        externalURL: MetadataViews.ExternalURL("https://qldernft.com/"),
+                        name: "Maxar NFTs Collection",
+                        description: "Maxar NFTs are high-resolution images of places and events captured by Maxar's commercial satellites.",
+                        externalURL: MetadataViews.ExternalURL("https://nft.maxar.com/"),
                         squareImage: media,
                         bannerImage: media,
                         socials: {
-                            "twitter": MetadataViews.ExternalURL("https://twitter.com/nftqlder")
+                            "twitter": MetadataViews.ExternalURL("https://twitter.com/Maxar")
                         }
                     )
             }
